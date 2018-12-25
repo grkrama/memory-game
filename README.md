@@ -12,8 +12,8 @@ HTML / CSS / Javascript
 Clone the Github Repository.
 
 ```sh
-$ git clone https://github.com/grkrama/project2-memory-game.git
-$ cd project2-memory-game
+$ git clone https://github.com/grkrama/memory-game.git
+$ cd memory-game
 ```
 ### Open Site
 
