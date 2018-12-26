@@ -17,7 +17,7 @@ $ cd memory-game
 ```
 ### Open Site
 
-Run Index.html inside folder project2-memory-game
+Run Index.html inside folder project2-memory-game to open a page.
 
 ### Game Rules
 
