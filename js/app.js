@@ -2,6 +2,7 @@ let selectedCards = [];
 let moves = 0;
 const moveEle = document.querySelector('.moves');
 const timerEle = document.querySelector('.timer');
+const stars = document.querySelector(".stars");
 let cardsCount = 0;
 let starsCount = 3;
 let intervalId = "";
@@ -42,11 +43,13 @@ function init(){
     const cards = document.querySelectorAll('.card');
     cardsCount = cards.length;
     let i = 0;
+    stars.children[1].firstElementChild.setAttribute('data-fbstars', 0);
+    stars.children[2].firstElementChild.setAttribute('data-fbstars', 0);
     const randomArr = shuffle(Array.from(Array(cardsCount).keys()));
     cards.forEach(
         function(currentValue){
             currentValue.style.order = randomArr[i];
-            currentValue.classList.remove('match','open','show');
+            currentValue.classList.remove('match','open','show','disabled');
             moveEle.innerText = moves;
             i++;
         },
@@ -65,12 +68,12 @@ function CardClicked (evt){
     if (evt.target.nodeName === "LI"){
         nodeEle = evt.target;
     }
-    else if (evt.target.parentElement.nodeName === "I")
+    else if (evt.target.parentElement.nodeName === "LI")
     {
         nodeEle = evt.target.parentElement;
     }
 
-    if (nodeEle && (nodeEle.classList.contains("match") === false))
+    if (nodeEle && ((nodeEle.classList.contains("match") === false) && ((nodeEle.classList.contains("open") === false))))
     {
         selectedCards.push(nodeEle);
         flipCard(nodeEle);
@@ -154,7 +157,7 @@ function modalOkClicked () {
 }
 
 function calculateStars () {
-    var stars = document.querySelector(".stars");
+    //var stars = document.querySelector(".stars");
     if (moves === 16) {
 
     }else if (moves > 16 && moves <= 24){
